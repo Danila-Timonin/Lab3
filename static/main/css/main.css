@@ -1,15 +1,36 @@
-
+#main {
+  background-image: url("/static/main/img/background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar {
+    padding: 0 !important;
+}
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 .menu-block2{
-    color: #465ee5 !important;
+    color: #465ee5;
 }
 li{
-    padding: 0 20px !important;
+    padding: 0 20px;
 }
 .menu-block1{
-    color: black !important;
+    color: black;
 }
 
 .li {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.bg-primary {
+    background: none !important;
+    margin: 0 !important;
 }
