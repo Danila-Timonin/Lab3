@@ -112,7 +112,7 @@ def course_add(request):
 
 
 def course_subscription(request, course_id):
-    if request.method == 'POST':
+    if request.method == 'GET':
         course = Course.objects.get(id=course_id)
         # Проверяем, что пользователь аутентифицирован
         if request.user.is_authenticated:
@@ -120,16 +120,26 @@ def course_subscription(request, course_id):
             subscription, created = Subscription.objects.get_or_create(user=request.user, course=course)
             if created:
                 # Курс успешно добавлен
-                messages.success(request, 'Course successfully added to your courses.')
-                return render(request, 'main/student_courses', {'course': course})
+                messages.success(request, 'Курс был успешно добавлен в "Мои курсы"')
+                return render(request, 'main/students_courses.html', {'course': course})
             else:
                 # Пользователь уже имеет этот курс в своих курсах
-                messages.info(request, 'You already have this course in your courses.')
-                return render(request, 'main/student_courses', {'course': course})
-
+                messages.info(request, 'Этот курс уже есть в "Мои курсы"')
+                return render(request, 'main/students_courses.html', {'course': course})
 
 @login_required
 def my_courses(request):
     user = request.user
     courses = user.subscriptions.all()
     return render(request, 'main/my_courses.html', {'courses': courses})
+
+
+def course_details(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    return render(request, 'main/course_details.html', {'course': course})
+
+def course_delete_from_my_list(request, course_id):
+    if request.method == 'POST':
+        course = get_object_or_404(Course, id=course_id)
+        user = request.user
+        user.subscriptions.remove(course)

@@ -1,21 +1,33 @@
 {% extends 'main/base.html' %}
+
 {% block title %}
 Курсы для ЕГЭ
 {% endblock %}
 
 {% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'main/css/display_courses.css' %}">
+</head>
+
 <body>
-    <h2>EGE Courses</h2>
-    {% for course in courses %}
-    {% if course.category == 'ege' %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ course.title }}</h5>
-            <a href="#" class="btn btn-primary">Add Course</a>
+    <div class="container">
+        <h2>EGE Courses</h2>
+        <div class="row">
+            {% for course in courses %}
+            {% if course.category == 'ege' %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <a href="#" class="btn btn-primary">Add Course</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    {% endif %}
-    {% endfor %}
 </body>
 {% endblock %}

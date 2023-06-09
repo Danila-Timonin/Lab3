@@ -17,6 +17,15 @@
 body {
     margin: 0 !important;
     padding: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html{
+       width: 100%;
+       max-width: 100%;
+       overflow-x: hidden;
 }
 
 .menu-block2{
@@ -39,4 +48,9 @@ li{
 .bg-primary {
     background: none !important;
     margin: 0 !important;
+}
+
+.container {
+    margin-top: 20px; /* Верхний отступ от страницы */
+    margin-bottom: 20px; /* Нижний отступ от страницы */
 }

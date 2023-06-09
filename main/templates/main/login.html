@@ -8,19 +8,22 @@ id="main"
 {% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+    <title>Вход</title>
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
-    <p>Еще нет аккаунта? <a href="{% url 'register' %}">Регистрация</a></p>
+    <div class="login-container">
+        <h2>Вход</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Login">
+        </form>
+        <p>Еще нет аккаунта? <a href="{% url 'register' %}">Регистрация</a></p>
+    </div>
 </body>
 </html>
 

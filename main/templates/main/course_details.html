@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Курсы
+{% endblock %}
+
+{% block content %}
+<head>
+    {% load static %}
+    <link  rel="stylesheet" href="{% static 'main/css/display_about_course.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="course-title">{{ course.title }}</h1>
+        <img src="{{ course.image.url }}" alt="{{ course.title }}" class="course-image">
+        <p class="course-category">{{ course.get_category_display }}</p>
+        <p class="course-description">{{ course.description }}</p>
+    </div>
+</body>
+{% endblock %}
