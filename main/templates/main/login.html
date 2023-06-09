@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% block bodyid %}
+id="main"
+{% endblock %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+    </form>
+    <p>Еще нет аккаунта? <a href="{% url 'register' %}">Регистрация</a></p>
+</body>
+</html>
+
+{% endblock %}

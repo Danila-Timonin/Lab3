@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Мои курсы
+{% endblock %}
+
+{% block content %}
+<h2>Мои курсы</h2>
+{% if courses %}
+    <ul>
+    {% for course in courses %}
+        <li>{{ course.title }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Вы пока не подписаны на ни один курс.</p>
+{% endif %}
+{% endblock %}

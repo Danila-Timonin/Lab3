@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Студентам
+{% endblock %}
+
+{% block content %}
+<body>
+    <h2>Students Courses</h2>
+    {% for course in courses %}
+    {% if course.category == 'students' %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ course.image.url }}" class="card-img-top" alt="{{ course.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'course_subscription' course.id %}" class="btn btn-primary">Add Course</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</body>
+
+{% endblock %}

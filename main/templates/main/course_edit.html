@@ -1,0 +1,19 @@
+{% extends 'main/course_base.html' %}
+
+{% block content %}
+  <h1>Course Edit</h1>
+
+  <!-- Форма для добавления нового курса -->
+  <form method="POST" action="{% url 'course_add' %}">
+    {% csrf_token %}
+    <button type="submit">Add Course</button>
+  </form>
+
+  <!-- Список существующих курсов -->
+  <h2>Existing Courses</h2>
+{% for course in courses %}
+  <h3>{{ course.title }}</h3>
+  <p>{{ course.description }}</p>
+  <!-- Остальные поля курса -->
+{% endfor %}
+{% endblock %}

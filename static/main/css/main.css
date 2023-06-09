@@ -1,5 +1,6 @@
 #main {
   background-image: url("/static/main/img/background.png");
+  height: 100vh !important;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -8,21 +9,26 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
 .navbar {
     padding: 0 !important;
 }
+
 body {
     margin: 0 !important;
     padding: 0 !important;
 }
+
 .menu-block2{
-    color: #465ee5;
+    color: #465ee5 !important;
 }
+
 li{
     padding: 0 20px;
 }
+
 .menu-block1{
-    color: black;
+    color: black !important;
 }
 
 .li {
